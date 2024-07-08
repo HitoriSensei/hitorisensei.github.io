@@ -2,7 +2,7 @@
 layout: post
 title:  "Breaking and fixing Mercusys MR70X router with OpenWRT firmware"
 date:   2024-07-08 15:20:03 +0200
-categories: router uart firmware mr70x openwrt mercusys
+categories: networking
 ---
 # Broken (and fixed) things
 
