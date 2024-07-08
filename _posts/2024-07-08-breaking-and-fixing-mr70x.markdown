@@ -7,10 +7,10 @@ categories:
 ---
 # Broken (and fixed) things
 
-* Bad Magic Number
-* 01221: the firmware software version dismatched
-* No filesystem could mount root, tried:  squashfs
-* 00331: factory boot check integer flag is not 1
+* `Bad Magic Number`
+* `01221: the firmware software version dismatched` (not entirely fixed, workaround)
+* `No filesystem could mount root, tried:  squashfs`
+* `00331: factory boot check integer flag is not 1`
 
 # How to break it
 
