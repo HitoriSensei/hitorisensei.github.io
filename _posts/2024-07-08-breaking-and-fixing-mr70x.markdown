@@ -326,4 +326,4 @@ Until a method to fix the issue properly is found, you will have to first flash 
 If you’ve successfully unbricked your router, well done!
 You’ve just saved a couple of bucks!
 
-Instead of throwing money on a new router, you can buy me a coffee at https://ko-fi.com/hitorisensei
+Instead of throwing money on a new router, you can buy me a coffee at [ko-fi.com](https://ko-fi.com/hitorisensei). Thanks!
