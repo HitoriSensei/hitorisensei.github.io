@@ -318,7 +318,7 @@ This is (probably?) a leftover from the OpenWRT firmware metadata, saved somewhe
 
 This breaks the OEM update system, resulting in the `01221: the firmware software version dismatched` error.
 
-Until a method to fix the issue properly is found, you will have first flash OpenWRT, then convert new OEM firmware to sysupgrade, and flash it via OpenWRT's Web UI.
+Until a method to fix the issue properly is found, you will have to first flash the OpenWRT, then convert the new OEM firmware to a sysupgrade, and flash it via the OpenWRT's Web UI.
 
 
 ### Epilogue
