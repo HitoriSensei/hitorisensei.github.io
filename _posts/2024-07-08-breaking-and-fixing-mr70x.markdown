@@ -1,9 +1,16 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Breaking and fixing Mercusys MR70X router with OpenWRT firmware"
 date:   2024-07-08 15:20:03 +0200
-categories: jekyll update
+categories: router uart firmware mr70x openwrt mercusys
 ---
+# Broken (and fixed) things
+
+* Bad Magic Number
+* 01221: the firmware software version dismatched
+* No filesystem could mount root, tried:  squashfs
+* 00331: factory boot check integer flag is not 1
+
 # How to break it
 
 * Flash OpenWRT using WEB UI
@@ -296,10 +303,26 @@ To do that, we are going to do the opposite of what we did just now: Use OEM ini
 Follow the steps in **Flashing the OEM sysupgrade**
 
 
+### Caveats
+
+* You won't be able to perform the OEM firmware update via Web UI without going to OpenWRT first.
+
+You may have noticed a weird version number in OEM firmware:
+
+```
+0.0.0 Build 20240322 Rel. 23809(4555)
+```
+
+This is (probably?) a leftover from the OpenWRT firmware metadata, saved somewhere in the flash memory.
+
+This breaks the OEM update system, resulting in the `01221: the firmware software version dismatched` error.
+
+Until a method to fix the issue properly is found, you will have first flash OpenWRT, then convert new OEM firmware to sysupgrade, and flash it via OpenWRT's Web UI.
+
 
 ### Epilogue
 
 If you’ve successfully unbricked your router, well done!
 You’ve just saved a couple of bucks!
 
-Instead of throwing a money on a new router, you can tip me a coffee at https://ko-fi.com/hitorisensei
+Instead of throwing money on a new router, you can buy me a coffee at https://ko-fi.com/hitorisensei
