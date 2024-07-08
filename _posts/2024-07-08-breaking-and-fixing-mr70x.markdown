@@ -62,7 +62,7 @@ categories:
 
 ### What will you need:
 
-* Tftpserver software
+* TFTPserver software
   * For macosx I recommend Transfer, free trial is all you need
 * 3.3v UART to USB dongle with some wires to connect it to the router
 * Terminal
@@ -123,7 +123,7 @@ categories:
 * Download the OpenWRT kernel initramfs .bin from https://downloads.openwrt.org/releases/23.05.3/targets/ramips/mt7621/openwrt-23.05.3-ramips-mt7621-mercusys_mr70x-v1-initramfs-kernel.bin
 * Rename it to `test.bin`
 
-* Start your tftp server in the directory whene `test.bin` is
+* Start your TFTP server in the directory whene `test.bin` is
 
   * In Transfer you can just drop the `test.bin` file into the Transfer window. It should appear on the file list.
 
@@ -158,7 +158,7 @@ categories:
     or your terminal doesn’t send keystrokes properly
     or TX cable isn’t properly connected.
 
-* Type `t` again and press `enter`. You should enter tftpboot mode.
+* Type `t` again and press `enter`. You should enter TFTPboot mode.
 
   * You should see
 
@@ -171,10 +171,10 @@ categories:
     Loading: *
     ```
 
-    * Note the file name, if it is different than `test.bin`, you should rename the file in tftp server to match
+    * Note the file name, if it is different than `test.bin`, you should rename the file in TFTP server to match
     * Note the server IP address, if it is different than `192.168.1.5`, you must change your PC static IP address settings so they would match
 
-  * If download doesn’t start and you see `Retry count exceeded; starting again` message, your TFTP server is not running or cannot be reached, check IP, ethernet connection and tftp server
+  * If download doesn’t start and you see `Retry count exceeded; starting again` message, your TFTP server is not running or cannot be reached, check IP, ethernet connection and TFTP server
 
 * After the download, you should see the message:
 
