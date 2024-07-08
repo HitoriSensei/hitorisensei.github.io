@@ -8,7 +8,7 @@ categories:
 # Broken (and fixed) things
 
 * `Bad Magic Number`
-* `01221: the firmware software version dismatched` (not entirely fixed, workaround)
+* `01221: the firmware software version dismatched` (not entirely fixed, see [Caveats](#caveats))
 * `No filesystem could mount root, tried:  squashfs`
 * `00331: factory boot check integer flag is not 1`
 
