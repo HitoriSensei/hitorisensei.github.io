@@ -16,9 +16,9 @@ categories:
 
 * Flash OpenWRT using WEB UI
 
-* Flash OEM firmware package, don’t read guides, ignore warnings (you asked for a brick)
+* Flash OEM firmware package, don’t read guides, ignore the warnings (that's how you ask for a brick)
 
-* Say hello to softbrick:
+* Say hello to soft-brick:
 
   ```
   3: System Boot system code via Flash.
