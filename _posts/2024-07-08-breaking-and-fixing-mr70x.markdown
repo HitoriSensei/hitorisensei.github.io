@@ -76,7 +76,7 @@ categories: router uart firmware mr70x openwrt mercusys
 
 * Open the case, connect the UART cable **ignore the VCC PIN, it MUST remain disconnected**
 
-  ![UART](./breaking-and-fixing-mr70x.assets/UART.jpg)
+  ![UART]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/UART.jpg)
 
   * If the ethernet port does not start with the UART connected, *disconnect the VCC cable from UART !*
 
@@ -203,16 +203,16 @@ If you haven’t dont that already, begin by preparing the `sysupdate.bin` from 
   * `root` / `root` are the default credentials
 
 * Go to „Backup / Flash firmware”
-  ![image-20240708135436074](./breaking-and-fixing-mr70x.assets/image-20240708135436074.png)
+  ![image-20240708135436074]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708135436074.png)
 
 * Flash the `sysupgrade.bin` that we’ve got by converting the OEM firmware
 
   * It is not the OpenWRT sysupgrade, it is the converted one from **Prepare the OEM sysupdate** steps !
 
-  ![image-20240708125941104](./breaking-and-fixing-mr70x.assets/image-20240708125941104-0436397.png)
-  ![image-20240708130003530](./breaking-and-fixing-mr70x.assets/image-20240708130003530.png)
+  ![image-20240708125941104]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708125941104-0436397.png)
+  ![image-20240708130003530]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708130003530.png)
 
-  Uncheck „Keep settings”, check „Force upgrade” (ignore the warnings, this time we know what we do), and  click „Continue”![image-20240708130309322](./breaking-and-fixing-mr70x.assets/image-20240708130309322.png)
+  Uncheck „Keep settings”, check „Force upgrade” (ignore the warnings, this time we know what we do), and  click „Continue”![image-20240708130309322]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708130309322.png)
 
 * Wait for the completion. If the router reboots to OEM firmware, you are good to go, router is fixed.
 
@@ -260,7 +260,7 @@ To do that, we are going to do the opposite of what we did just now: Use OEM ini
   * You can skip the initial setup in the upper-right corner by clicking „Skip setup” button
 
 * Go to „Advanced” -> „System” -> „Firmware Update”
-  ![image-20240708134443783](./breaking-and-fixing-mr70x.assets/image-20240708134443783.png)
+  ![image-20240708134443783]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708134443783.png)
 
 * Select and update the `factory` OpenWRT image file.
 
