@@ -18,7 +18,7 @@ categories:
 
 * Flash OEM firmware package, don’t read guides, ignore the warnings (that's how you ask for a brick)
 
-* Say hello to soft-brick:
+* Say hello to a soft-brick:
 
   ```
   3: System Boot system code via Flash.
