@@ -58,7 +58,7 @@ categories:
 
     Which prevents you from flashing any software via Web UI
 
-## Hard, most probably you end up here
+## Hard, most probably your case if you are reading this article
 
 ### What will you need:
 
