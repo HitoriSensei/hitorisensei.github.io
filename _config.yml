@@ -20,6 +20,11 @@ url: "https://hitorisensei.github.io" # the base hostname & protocol for your si
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
+github:
+  source:
+    repository_url: https://github.com/HitoriSensei/hitorisensei.github.io
+    branch: main
+
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
