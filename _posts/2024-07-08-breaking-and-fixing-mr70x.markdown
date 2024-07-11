@@ -55,7 +55,7 @@ After some playing around, I've decided to flash the OEM firmware back without r
 
 * If the recovery page is just refreshed after completion, you are not lucky. Time go get hands dirty. Get yourself a 3.3V UART dongle.
 
-  * During flash you should probably see a log in the serial console:
+  * During the flash you should probably see a log in the serial console:
 
     ```
     [NM_Error](nm_checkUpdateContent) 01221: the firmware software version dismatched
@@ -68,10 +68,10 @@ After some playing around, I've decided to flash the OEM firmware back without r
 ### What will you need:
 
 * TFTPserver software
-  * For macosx I recommend Transfer, free trial is all you need
+  * For MacOSX I recommend Transfer, free trial is all you need
 * 3.3v UART to USB dongle with some wires to connect it to the router
 * Terminal
-  * On macosx or linux a built-in terminal is all you need
+  * On MacOSX or linux a built-in terminal is all you need
   * On windows, I’ve heard that Putty can be used
 
 ### Begin the operation
@@ -92,7 +92,7 @@ After some playing around, I've decided to flash the OEM firmware back without r
 
     * Find you UART device:
       `ls /dev/tty.*`
-      One of the devices should contain `usbserial`, that sould be the one. Copy it’s path.
+      One of the devices should contain `usbserial`, that should be the one. Copy its path.
 
     * Connect to the serial:
 
@@ -116,23 +116,23 @@ After some playing around, I've decided to flash the OEM firmware back without r
 
 #### Begin the fix
 
-##### Prepare the OEM sysupdate
+##### Prepare the OEM sysupgrade
 
 * Download the latest OEW firmware from https://www.mercusys.com/en/download/mr70x/v1#Firmware
 * Unzip to get the `.bin` file
 * Go to https://argsnd.github.io/tp-link-stock-firmware-converter/index.html
-* Upload the firmware `.bin` file to get the `sysupdate.bin` file
+* Upload the firmware `.bin` file to get the `sysupgrade.bin` file
 
 ##### Prepare the initramfs image file
 
 * Download the OpenWRT kernel initramfs .bin from https://downloads.openwrt.org/releases/23.05.3/targets/ramips/mt7621/openwrt-23.05.3-ramips-mt7621-mercusys_mr70x-v1-initramfs-kernel.bin
 * Rename it to `test.bin`
 
-* Start your TFTP server in the directory whene `test.bin` is
+* Start your TFTP server in the directory where `test.bin` is
 
-  * In Transfer you can just drop the `test.bin` file into the Transfer window. It should appear on the file list.
+  * In the Transfer you can just drop the `test.bin` file into the Transfer window. It should appear on the file list.
 
-* Open the terminal with the serial consone, power-cycle the router
+* Open the terminal with the serial console, power-cycle the router
 
 * As soon as you see the new output in the terminal, press `t`
 
@@ -176,10 +176,10 @@ After some playing around, I've decided to flash the OEM firmware back without r
     Loading: *
     ```
 
-    * Note the file name, if it is different than `test.bin`, you should rename the file in TFTP server to match
-    * Note the server IP address, if it is different than `192.168.1.5`, you must change your PC static IP address settings so they would match
+    * Note the file name, if it is different from `test.bin`, you should rename the file in TFTP server to match
+    * Note the server IP address, if it is different from `192.168.1.5`, you must change your PC static IP address settings, so they would match
 
-  * If download doesn’t start and you see `Retry count exceeded; starting again` message, your TFTP server is not running or cannot be reached, check IP, ethernet connection and TFTP server
+  * If download doesn’t start, and you see `Retry count exceeded; starting again` message, your TFTP server is not running or cannot be reached, check IP, ethernet connection and TFTP server
 
 * After the download, you should see the message:
 
@@ -202,7 +202,7 @@ After some playing around, I've decided to flash the OEM firmware back without r
 
 ##### Flashing the OEM sysupgrade
 
-If you haven’t dont that already, begin by preparing the `sysupdate.bin` from OEM firmware, see **Prepare the OEM sysupdate** steps above.
+If you haven’t done that already, begin by preparing the `sysupgrade.bin` from OEM firmware, see [Prepare the OEM sysupgrade](#prepare-the-oem-sysupgrade) steps above.
 
 * After the system starts (LED should stop blinking), you should be able to access `http://192.168.1.1/cgi-bin/luci/`
 
@@ -213,12 +213,12 @@ If you haven’t dont that already, begin by preparing the `sysupdate.bin` from 
 
 * Flash the `sysupgrade.bin` that we’ve got by converting the OEM firmware
 
-  * It is not the OpenWRT sysupgrade, it is the converted one from **Prepare the OEM sysupdate** steps !
+  * It is not the OpenWRT sysupgrade, it is the converted one from [Prepare the OEM sysupgrade](#prepare-the-oem-sysupgrade) steps !
 
   ![image-20240708125941104](https://i.ibb.co/8dhnr2m/image-20240708125941104-0436397.png)
-  ![image-20240708130003530](./How%20to%20break%20it.assets/image-20240708130003530.png)
+  ![image-20240708130003530](https://i.ibb.co/VBGMsv3/image-20240708130003530.png)
 
-  Uncheck „Keep settings”, check „Force upgrade” (ignore the warnings, this time we know what we do), and  click „Continue”![image-20240708130309322]({{ site.url }}/assets/breaking-and-fixing-mr70x.assets/image-20240708130309322.png)
+  Uncheck „Keep settings”, check „Force upgrade” (ignore the warnings, this time we know what we do), and  click „Continue” ![image-20240708130309322](https://i.ibb.co/cYy6cTK/image-20240708130309322.png)
 
 * Wait for the completion. If the router reboots to OEM firmware, you are good to go, router is fixed.
 
@@ -234,15 +234,15 @@ If you haven’t dont that already, begin by preparing the `sysupdate.bin` from 
 
 **Important: First finish the Begin Fix steps, as we need MTD to be set up properly before OEM initramfs could be started from TFTP**
 
-This error seems to be fixable ONLY by using OEM Web UI flash (unless you know which partition to backup and how and which bytes to edit. I couldn’t figure it out).
+This error seems to be fixable ONLY by using OEM Web UI flash (unless you know which partition to back up and how and which bytes to edit. I could not figure it out).
 
 To do that, we are going to do the opposite of what we did just now: Use OEM initramfs to flash OpenWRT first.
 
-* Get the OEM converted sysupdate file if you haven’t already (see Prepare the OEM sysupdate)
+* Get the OEM converted sysupgrade file if you haven’t already (see Prepare the OEM sysupgrade)
 
-* Rename the `sysupdate.bin` to `test.bin` so we could boot from it using
+* Rename the `sysupgrade.bin` to `test.bin` so we could boot from it using
 
-* Boot from TFTP, follow the steps in Prepare the initramfs image file (but using `sysupdate.bin` as `test.bin` instead of kernel image)
+* Boot from TFTP, follow the steps in Prepare the initramfs image file (but using `sysupgrade.bin` as `test.bin` instead of kernel image)
 
   * If you end up with
 
@@ -257,8 +257,8 @@ To do that, we are going to do the opposite of what we did just now: Use OEM ini
 
 * After the LED stops blinking, the Web UI should be available at `http://192.168.1.1`
 
-  * **Important:** router could start with the configuration that was set-up before you even flashed OpenWRT, as those settings doesn’t seem to be cleared during the process.
-    If the Web UI is not reachable, **press and hold the reset button** until the reouter restarts.
+  * **Important:** router could start with the configuration that was set up before you even flashed OpenWRT, as those settings doesn’t seem to be cleared during the process.
+    If the Web UI is not reachable, **press and hold the reset button** until the router restarts.
     Then you need to repeat the TFTP boot process again.
 
 * Now perform flashing the OpenWRT factory image using Web UI
@@ -302,11 +302,11 @@ To do that, we are going to do the opposite of what we did just now: Use OEM ini
 
     Then you are refreshing the flash page, this will not work. You **need** to go directly to `http://192.168.1.1` page, not just refresh.
 
-* Router is now booted from internal memory, integer flag should be properly set to `1`, we can now process with **proper** OEM firmware flash, instead of the mess that made us do all the debricking in the first place.
+* Router is now booted from internal memory, integer flag should be properly set to `1`, we can now process with **proper** OEM firmware flash, instead of the mess that made us do all the de-bricking in the first place.
 
 ##### Proper OEM flash
 
-Follow the steps in **Flashing the OEM sysupgrade**
+Follow the steps in [Flashing the OEM sysupgrade](#flashing-the-oem-sysupgrade)
 
 
 ### Caveats
@@ -328,7 +328,7 @@ Until a method to fix the issue properly is found, you will have to first flash 
 
 ### Epilogue
 
-If you’ve successfully unbricked your router, well done!
+If you’ve successfully un-bricked your router, well done!
 You’ve just saved a couple of bucks!
 
 Instead of throwing money on a new router, you can buy me a coffee at [ko-fi.com](https://ko-fi.com/hitorisensei). Thanks!
