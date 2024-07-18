@@ -15,7 +15,6 @@ I recently ran into an issue where ESLint was throwing a mysterious error when I
 The error was:
 
 ```
-
 Parsing error: ESLint was configured to run on `/Users/piortbosak/Projekty/blahblahblabh/somefile.ts` using `parserOptions.project`: <tsconfigRootDir>/tsconfig.eslint.json
 However, that TSConfig does not include this file. Either:
 - Change ESLint's list of included files to not include this file
